@@ -1,0 +1,50 @@
+{
+  "RUN_ALL": false,
+  "DATA": "cells",
+  "DATA_PATH": "data",
+  "BATCH_SIZE": 32,
+  "MODELS": ["AlexNet", "VGG16", "ResNet18"],
+  "MODEL": "AlexNet",
+  "DATASETS": {
+    "cells": {
+      "channels": 3,
+      "num_classes": 8
+    },
+    "chest": {
+      "channels": 1,
+      "num_classes": 2
+    },
+    "lesions": {
+      "channels": 3,
+      "num_classes": 7
+    },
+    "orgs": {
+      "channels": 1,
+      "num_classes": 11
+    }
+  },
+  "task2": {
+    "MODELS": ["AlexNet", "VGG16", "ResNet18"],
+    "MODES": ["Baseline", "Light"]
+  },
+
+  "DROP_RATE": 0.5,
+  "ACTIVATION": "ReLU",
+  "LEARNING_RATE": 0.001,
+  "EPOCHS": 20,
+  "VAL_SPLIT": 0.1,
+  "SEED": 42,
+  "OUTPUT_DIR": "results",
+  "PATIENCE": 7,
+
+  "task3": {
+    "TARGET_DATA": "organs",
+    "channels": 1,
+    "num_classes": 11,
+    "SOURCE_DATA": { "DATA": "orgs", "channels": 1, "num_classes": 11 },
+    "MODEL": "Light_ResNet18",
+    "MODES": ["scratch", "feature_extraction", "fine_tune"],
+    "DATA_TRANSFORM": false,
+    "CHECKPOINT": "results/model/Light_ResNet18_orgs.pt"
+  }
+}

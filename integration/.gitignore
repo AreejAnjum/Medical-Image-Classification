@@ -1,0 +1,8 @@
+# Ignore local notes and temporary files
+n.md
+a.md
+
+data/
+results/
+__pycache__/
+*.pyc
